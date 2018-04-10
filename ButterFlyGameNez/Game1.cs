@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ButterFlyGameNez.Scenes;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Nez;
@@ -11,12 +12,15 @@ namespace ButterFlyGameNez
     /// </summary>
     public class Game1 : Core
     {
+        Scene startScene;
         //GraphicsDeviceManager graphics;
         //SpriteBatch spriteBatch;
 
         public Game1() : base(width: 1280, height: 768, isFullScreen: false, enableEntitySystems: false)
         {
             //graphics = new GraphicsDeviceManager(this);
+
+            //scene = startScene;
             //Content.RootDirectory = "Content";
         }
 
@@ -32,6 +36,10 @@ namespace ButterFlyGameNez
 
             base.Initialize();
             Window.AllowUserResizing = true;
+
+            //start scene
+            startScene = new StartScene();
+            scene = startScene;
         }
 
         /// <summary>
