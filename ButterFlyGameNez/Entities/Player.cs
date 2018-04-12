@@ -12,7 +12,7 @@ namespace ButterFlyGameNez.Entities
     public class Player : Component, ITriggerListener, IUpdatable
     {
         public float moveSpeed = 150;
-        public float gravity = 150;
+        public float gravity = 50;
         public float flyHeight = 16 * 5;
 
 
@@ -141,14 +141,14 @@ namespace ButterFlyGameNez.Entities
 
             if (moveDir.X < 0)
             {
-                if (_collisionState.below)
+               // if (_collisionState.below)
                     animation = Animations.Run;
                 _animation.flipX = true;
                 _velocity.X = -moveSpeed;
             }
             else if (moveDir.X > 0)
             {
-                if (_collisionState.below)
+                //if (_collisionState.below)
                     animation = Animations.Run;
                 _animation.flipX = false;
                 _velocity.X = moveSpeed;
@@ -163,15 +163,16 @@ namespace ButterFlyGameNez.Entities
                 animation = Animations.Idle;
             }
 
-            if (_collisionState.below && _flyInput.isPressed)
+            //if (_collisionState.below && _flyInput.isPressed)
+            if (_flyInput.isPressed)
             {
                 animation = Animations.Jumping;
                 _velocity.Y = -Mathf.sqrt(2f * flyHeight * gravity);
             }
 
 
-            if (!_collisionState.below && _velocity.Y > 0)
-                animation = Animations.Falling;
+            //if (!_collisionState.below && _velocity.Y > 0)
+              //  animation = Animations.Falling;
 
             // apply gravity
             _velocity.Y += gravity * Time.deltaTime;
