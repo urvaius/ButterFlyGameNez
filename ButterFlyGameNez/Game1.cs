@@ -19,6 +19,7 @@ namespace ButterFlyGameNez
         public Game1() : base(width: 1280, height: 768, isFullScreen: false, enableEntitySystems: false)
         {
             //graphics = new GraphicsDeviceManager(this);
+            Core.defaultSamplerState = SamplerState.LinearClamp;
 
             //scene = startScene;
             //Content.RootDirectory = "Content";
@@ -38,7 +39,7 @@ namespace ButterFlyGameNez
             Window.AllowUserResizing = true;
 
             //start scene
-            startScene = new StartScene();
+            startScene = new HomeScene();
             scene = startScene;
         }
 

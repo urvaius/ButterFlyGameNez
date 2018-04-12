@@ -29,7 +29,7 @@ namespace ButterFlyGameNez.Scenes
             base.initialize();
 
 
-            var texture = content.Load<Texture2D>(@"Textures\butterfly1");
+            var texture = content.Load<Texture2D>(Content.Textures.butterfly1);
             var entityOne = createEntity("butterfly");
 
             entityOne.position = (new Vector2(200, 200));
