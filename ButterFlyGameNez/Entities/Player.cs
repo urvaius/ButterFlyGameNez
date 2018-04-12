@@ -22,7 +22,7 @@ namespace ButterFlyGameNez.Entities
 
         }
 
-        //Sprite<Animations> _animation;
+        Sprite<Animations> _animation;
 
         TiledMapMover _mover;
         BoxCollider _boxCollider;
@@ -34,74 +34,78 @@ namespace ButterFlyGameNez.Entities
         public override void onAddedToEntity()
         {
             base.onAddedToEntity();
-            var texture = entity.scene.content.Load<Texture2D>(Content.Textures.butterfly1);
+
+            //switch to a buterfly animation when get one.
+            //var texture = entity.scene.content.Load<Texture2D>(Content.Textures.butterfly1);
+
+            var texture = entity.scene.content.Load<Texture2D>(Content.Textures.caveman);
             _boxCollider = entity.getComponent<BoxCollider>();
             _mover = entity.getComponent<TiledMapMover>();
 
-            //var subtextures = Subtexture.subtexturesFromAtlas(texture, 32, 32);
+            var subtextures = Subtexture.subtexturesFromAtlas(texture, 32, 32);
 
-            //_animation = entity.addComponent(new Sprite<Animations>(subtextures[0]));
-            ////extract the animations from the atlas they are setup in rows with 8 columns
-            //_animation.addAnimation(Animations.Walk, new SpriteAnimation(new List<Subtexture>()
-            //{
-            //    subtextures[0],
-            //    subtextures[1],
-            //    subtextures[2],
-            //    subtextures[3],
-            //    subtextures[4],
-            //    subtextures[5]}
-            //    ));
+            _animation = entity.addComponent(new Sprite<Animations>(subtextures[0]));
+            //extract the animations from the atlas they are setup in rows with 8 columns
+            _animation.addAnimation(Animations.Walk, new SpriteAnimation(new List<Subtexture>()
+            {
+                subtextures[0],
+                subtextures[1],
+                subtextures[2],
+                subtextures[3],
+                subtextures[4],
+                subtextures[5]}
+                ));
 
-            //_animation.addAnimation(Animations.Run, new SpriteAnimation(new List<Subtexture>()
-            //{
-            //    subtextures[8+0],
-            //    subtextures[8+1],
-            //    subtextures[8+2],
-            //    subtextures[8+3],
-            //    subtextures[8+4],
-            //    subtextures[8+5],
-            //    subtextures[8+6]
-            //}));
+            _animation.addAnimation(Animations.Run, new SpriteAnimation(new List<Subtexture>()
+            {
+                subtextures[8+0],
+                subtextures[8+1],
+                subtextures[8+2],
+                subtextures[8+3],
+                subtextures[8+4],
+                subtextures[8+5],
+                subtextures[8+6]
+            }));
 
-            //_animation.addAnimation(Animations.Idle, new SpriteAnimation(new List<Subtexture>()
-            //{
-            //    subtextures[16]
-            //}));
+            _animation.addAnimation(Animations.Idle, new SpriteAnimation(new List<Subtexture>()
+            {
+                subtextures[16]
+            }));
 
-            //_animation.addAnimation(Animations.Attack, new SpriteAnimation(new List<Subtexture>()
-            //{
-            //    subtextures[24+0],
-            //    subtextures[24+1],
-            //    subtextures[24+2],
-            //    subtextures[24+3]
-            //}));
+            _animation.addAnimation(Animations.Attack, new SpriteAnimation(new List<Subtexture>()
+            {
+                subtextures[24+0],
+                subtextures[24+1],
+                subtextures[24+2],
+                subtextures[24+3]
+            }));
 
-            //_animation.addAnimation(Animations.Death, new SpriteAnimation(new List<Subtexture>()
-            //{
-            //    subtextures[40+0],
-            //    subtextures[40+1],
-            //    subtextures[40+2],
-            //    subtextures[40+3]
-            //}));
+            _animation.addAnimation(Animations.Death, new SpriteAnimation(new List<Subtexture>()
+            {
+                subtextures[40+0],
+                subtextures[40+1],
+                subtextures[40+2],
+                subtextures[40+3]
+            }));
 
-            //_animation.addAnimation(Animations.Falling, new SpriteAnimation(new List<Subtexture>()
-            //{
-            //    subtextures[48]
-            //}));
+            _animation.addAnimation(Animations.Falling, new SpriteAnimation(new List<Subtexture>()
+            {
+                subtextures[48]
+            }));
 
-            //_animation.addAnimation(Animations.Hurt, new SpriteAnimation(new List<Subtexture>()
-            //{
-            //    subtextures[64],
-            //    subtextures[64+1]
-            //}));
+            _animation.addAnimation(Animations.Hurt, new SpriteAnimation(new List<Subtexture>()
+            {
+                subtextures[64],
+                subtextures[64+1]
+            }));
 
-            //_animation.addAnimation(Animations.Jumping, new SpriteAnimation(new List<Subtexture>()
-            //{
-            //    subtextures[72+0],
-            //    subtextures[72+1],
-            //    subtextures[72+2],
-            //    subtextures[72+3]
-            //}));
+            _animation.addAnimation(Animations.Jumping, new SpriteAnimation(new List<Subtexture>()
+            {
+                subtextures[72+0],
+                subtextures[72+1],
+                subtextures[72+2],
+                subtextures[72+3]
+            }));
             setupInput();
         }
 
@@ -133,21 +137,21 @@ namespace ButterFlyGameNez.Entities
         {
             // handle movement and animations when we add them
             var moveDir = new Vector2(_xAxisInput.value, 0);
-            // var animation = Animations.Idle
+            var animation = Animations.Idle;
 
             if (moveDir.X < 0)
             {
                 if (_collisionState.below)
-                    // animation = Animations.Run;
-                    //_animation.flipX = true;
-                    _velocity.X = -moveSpeed;
+                    animation = Animations.Run;
+                _animation.flipX = true;
+                _velocity.X = -moveSpeed;
             }
             else if (moveDir.X > 0)
             {
                 if (_collisionState.below)
-                    //  animation = Animations.Run;
-                    //_animation.flipX = false;
-                    _velocity.X = moveSpeed;
+                    animation = Animations.Run;
+                _animation.flipX = false;
+                _velocity.X = moveSpeed;
             }
             else
             {
@@ -156,21 +160,21 @@ namespace ButterFlyGameNez.Entities
                 {
 
                 }
-                //  animation = Animations.Idle;
+                animation = Animations.Idle;
             }
 
             if (_collisionState.below && _flyInput.isPressed)
             {
-                //animation = Animations.Jumping;
+                animation = Animations.Jumping;
                 _velocity.Y = -Mathf.sqrt(2f * flyHeight * gravity);
             }
 
 
             if (!_collisionState.below && _velocity.Y > 0)
-                // animation = Animations.Falling;
+                animation = Animations.Falling;
 
-                // apply gravity
-                _velocity.Y += gravity * Time.deltaTime;
+            // apply gravity
+            _velocity.Y += gravity * Time.deltaTime;
 
             // move
             _mover.move(_velocity * Time.deltaTime, _boxCollider, _collisionState);
@@ -178,8 +182,8 @@ namespace ButterFlyGameNez.Entities
             if (_collisionState.below)
                 _velocity.Y = 0;
 
-            //if (!_animation.isAnimationPlaying(animation))
-            //    _animation.play(animation);
+            if (!_animation.isAnimationPlaying(animation))
+                _animation.play(animation);
 
         }
         public void onTriggerEnter(Collider other, Collider local)

@@ -8,6 +8,7 @@ namespace Nez
 		public static class Textures
 		{
 			public const string butterfly1 = @"Textures\butterfly1";
+			public const string caveman = @"Textures\caveman";
 			public const string powerup = @"Textures\powerup";
 		}
 
