@@ -70,3 +70,20 @@
 /processorParam:TextureFormat=Color
 /build:Textures/caveman.png
 
+#begin Tiled/tiledMapnew.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:Tiled/tiledMapnew.tmx
+
+#begin Tiled/tilesheet_complete.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Tiled/tilesheet_complete.png
+

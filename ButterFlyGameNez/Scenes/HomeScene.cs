@@ -31,7 +31,9 @@ namespace ButterFlyGameNez.Scenes
             Screen.setSize(640 * 2, 480 * 2);
 
             var tiledEntity = createEntity("tiled-map-entity");
-            var tiledMap = content.Load<TiledMap>(Content.Tiled.tiledMap);
+            var tiledMap = content.Load<TiledMap>(Content.Tiled.tiledMapnew);
+
+            //var tiledMap = content.Load<TiledMap>(Content.Tiled.tiledMap);
             var objectLayer = tiledMap.getObjectGroup("objects");
             var spawnObject = objectLayer.objectWithName("spawn");
             var tiledMapComponent = tiledEntity.addComponent(new TiledMapComponent(tiledMap, "main"));

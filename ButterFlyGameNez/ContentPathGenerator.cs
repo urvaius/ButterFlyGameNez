@@ -15,7 +15,10 @@ namespace Nez
 		public static class Tiled
 		{
 			public const string tiledMap = @"Tiled\tiledMap";
+			public const string tiledMap3 = @"Tiled\tiledMap3";
+			public const string tiledMapnew = @"Tiled\tiledMapnew";
 			public const string tileset = @"Tiled\tileset";
+			public const string tilesheed2 = @"Tiled\tilesheed2";
 		}
 
 
