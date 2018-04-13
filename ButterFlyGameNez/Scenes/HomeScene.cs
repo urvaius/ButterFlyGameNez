@@ -38,9 +38,9 @@ namespace ButterFlyGameNez.Scenes
             var spawnObject = objectLayer.objectWithName("spawn");
             var tiledMapComponent = tiledEntity.addComponent(new TiledMapComponent(tiledMap, "main"));
 
-            //var playerEntity = createEntity("player", new Vector2(spawnObject.x, spawnObject.y));
+            var playerEntity = createEntity("player", new Vector2(spawnObject.x, spawnObject.y));
 
-            var playerEntity = createEntity("player", new Vector2(200, 200));
+            //var playerEntity = createEntity("player", new Vector2(200, 200));
 
             playerEntity.addComponent(new Player());
             playerEntity.addComponent(new BoxCollider(-8, -16, 16, 32));
