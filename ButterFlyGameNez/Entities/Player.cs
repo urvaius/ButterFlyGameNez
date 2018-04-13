@@ -13,6 +13,8 @@ namespace ButterFlyGameNez.Entities
     {
         public float moveSpeed = 150;
         public float gravity = 50;
+
+        //public float gravity = 50;
         public float flyHeight = 16 * 5;
 
 
@@ -141,15 +143,15 @@ namespace ButterFlyGameNez.Entities
 
             if (moveDir.X < 0)
             {
-               // if (_collisionState.below)
-                    animation = Animations.Run;
+                // if (_collisionState.below)
+                animation = Animations.Run;
                 _animation.flipX = true;
                 _velocity.X = -moveSpeed;
             }
             else if (moveDir.X > 0)
             {
                 //if (_collisionState.below)
-                    animation = Animations.Run;
+                animation = Animations.Run;
                 _animation.flipX = false;
                 _velocity.X = moveSpeed;
             }
@@ -172,7 +174,7 @@ namespace ButterFlyGameNez.Entities
 
 
             //if (!_collisionState.below && _velocity.Y > 0)
-              //  animation = Animations.Falling;
+            //  animation = Animations.Falling;
 
             // apply gravity
             _velocity.Y += gravity * Time.deltaTime;
