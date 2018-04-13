@@ -58,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\HomeScene.cs" />
     <Compile Include="Scenes\StartScene.cs" />
+    <None Include="Content\Tiled\rtsmedftesting.tmx" />
     <None Include="Content\Tiled\tiledMap.tmx" />
     <None Include="Content\Tiled\tiledMapnew.tmx" />
   </ItemGroup>
@@ -80,6 +81,7 @@
     <Content Include="Content\Textures\butterfly1.png" />
     <Content Include="Content\Textures\caveman.png" />
     <Content Include="Content\Textures\powerup.png" />
+    <Content Include="Content\Tiled\medieval_tilesheet.png" />
     <Content Include="Content\Tiled\tileset.png" />
     <Content Include="Content\Tiled\tilesheet_complete.png" />
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -232,6 +234,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Content\Tiled\rtsmed2.tsx" />
     <TypeScriptCompile Include="Content\Tiled\tilesheet_complete.tsx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
